@@ -17,9 +17,9 @@
 
 7 Найти в манифесте "android.intent.category.BROWSABLE"
 
-+ добавить там (в 2 места)
-+ 
-<data android:host="*.pyrus.com"/>
+ добавить там (в 2 места)
+ 
+`<data android:host="*.pyrus.com"/>`
 
 и сохранить
 
