@@ -2,26 +2,21 @@
 
 Репа создана для модификации APK Pyrus - после версии 239 сломали deeplink. Ну мы починим 
 
-0 SET VERSION=242
+1 на vscode установить apklab
+2 скачать from apkpure new version  https://apkpure.com/pyrus/net.papirus.androidclient
+3 распаковать через 7zip
+4 запустить vscode
+5 ctrl-shift-p ввести APKLab: Open an APK и выбрать файл net.papirus.androidclient.apk
+6 выбрать галочки что бы не декомпилить всякое, нажать Enter
 
-1 download from apkpure new version https://apkpure.com/pyrus/net.papirus.androidclient
+7 Найти в манифесте "android.intent.category.BROWSABLE"
++ добавить там (в 2 места)
+<data android:host="*.pyrus.com"/>
 
-2 apktool.bat d Pyrus_4.242.011_APKPure.xapk -o %VERSION%
+и сохранить
+8 ткнуть на apktool.yml выбрать APKLab: Rebuild the APK
+9 Повторить с файлом config.arm64_v8a.apk пункты 5,6,8
+10 запустить CMD, пойти в папку куда распаковак xapk
+11 adb install-multiple net.papirus.androidclient\dist\net.papirus.androidclient.apk  config.arm64_v8a\dist\config.arm64_v8a.apk
 
-3 apktool.bat d .\%VERSION%\unknown\net.papirus.androidclient.apk -o %VERSION%_apk
-
-4 notepad net.papirus.androidclient\AndroidManifest.xml
-
-5 search string  "android.intent.category.BROWSABLE"
-
-6 replace inside
-
-<data android:host="pyrus.com" android:pathPrefix="/rd/signin" android:scheme="https"/>
-<data android:host="*.pyrus.com" android:pathPrefix="/rd/signin" android:scheme="https"/>
-
-7 apktool b %VERSION%_apk -o net.papirus.androidclient.apk
-
-8 copy /Y net.papirus.androidclient.apk .\%VERSION%\unknown\
-
-9 apktool b %VERSION% -o Pyrus_%VERSION%_Modified.xapk
 
