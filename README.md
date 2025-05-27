@@ -1,6 +1,7 @@
 # pyrus_modified
 
 Репа создана для модификации APK Pyrus - после версии 239 сломали deeplink. Ну мы починим 
+##Вариант 1 - вручную
 
 1 на vscode установить apklab
 2 скачать from apkpure new version  https://apkpure.com/pyrus/net.papirus.androidclient
@@ -19,4 +20,8 @@
 10 запустить CMD, пойти в папку куда распаковак xapk
 11 adb install-multiple net.papirus.androidclient\dist\net.papirus.androidclient.apk  config.arm64_v8a\dist\config.arm64_v8a.apk
 
-
+##Вариант 2 - Скачать 
+1 скачиваем файлы dist.zip.001 dist.zip.002
+2 через 7-zip распаковываем
+3 запускаем в этой папке cmd
+4 adb install-multiple net.papirus.androidclient.apk  config.arm64_v8a.apk
